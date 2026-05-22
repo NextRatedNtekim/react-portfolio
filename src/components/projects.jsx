@@ -27,6 +27,19 @@ const projects = [
     }
   },
   {
+     title: " TASKr",
+    description: "To-do list with modern UI and advanced functionalities",
+    image: Music,
+    tags: ["React", "Tailwind", "Framer"],
+    links: "https://taskr-liard.vercel.app",
+    github: "#",
+    accent: "#2dde6e",
+    status: {
+    text: "Live",
+    isLive: true
+    }
+  },
+  {
     title: "Weather App",
     description: "Real-time weather updates with a clean, responsive UI and location-aware forecasting.",
     image: Weather,
@@ -39,19 +52,19 @@ const projects = [
     isLive: false
     }
   },
-  {
-    title: "Music App",
-    description: "Stream and explore music with an intuitive interface and rich playback controls.",
-    image: Music,
-    tags: ["React", "Firebase", "Tailwind"],
-    links: "#",
-    github: "#",
-    accent: "#f0abfc",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
-  },
+  // {
+  //   title: "Music App",
+  //   description: "Stream and explore music with an intuitive interface and rich playback controls.",
+  //   image: Music,
+  //   tags: ["React", "Firebase", "Tailwind"],
+  //   links: "#",
+  //   github: "#",
+  //   accent: "#f0abfc",
+  //   status: {
+  //   text: "Developing",
+  //   isLive: false
+  //   }
+  // },
   {
     title: "Hotel Booking App",
     description: "A polished booking experience with smooth search, filtering, and reservation flows.",
