@@ -18,7 +18,7 @@ export default function HomePage() {
       <Element name="experience">
         <Experience />
       </Element>
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Contact />
     </div>
   );

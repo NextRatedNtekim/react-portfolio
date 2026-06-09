@@ -32,7 +32,7 @@ export default function Footer() {
       ref={ref}
       className="relative overflow-hidden bg-black text-white border-t border-white/[0.06]"
     >
-      <div
+      {/* <div
           // style={{ scale: springScale, filter: blurFilter }}
           className="absolute inset-0 will-change-transform origin-center opacity-20"
         >
@@ -42,24 +42,24 @@ export default function Footer() {
         className="w-full h-full object-cover"
       />
 
-        </div>
+    </div> */}
       
 
       {/* Top ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[160px] bg-[#ffe998]/6 blur-[90px] rounded-full pointer-events-none" />
       
-      {/* Thin gold top line */}
+      
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[220px] h-px bg-gradient-to-r from-transparent via-[#ffe998]/60 to-transparent" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-14">
 
-        {/*  Top row  */}
-        <motion.div
+        
+        {/* <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="flex flex-col md:flex-row justify-between items-start md:items-center gap-10 mb-12"
         >
-          {/* Brand */}
+          
           <motion.div custom={0} variants={fadeUp} className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
               <IoSparkles size={15} className="text-[#ffe998]" />
@@ -75,7 +75,7 @@ export default function Footer() {
             </p>
           </motion.div>
 
-          {/* CTA */}
+          
           <motion.a
             custom={2} variants={fadeUp}
             href="#contact"
@@ -93,7 +93,7 @@ export default function Footer() {
             Hire Me
             <FaArrowRight size={13} />
           </motion.a>
-        </motion.div>
+        </motion.div> */}
 
         {/*  Divider  */}
         <motion.div

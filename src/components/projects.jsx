@@ -13,6 +13,32 @@ import food from "../assets/Food-Delivery-App.png";
 
 // Data 
 const projects = [
+   {
+    title: "Food Delivery App",
+    description: "End-to-end food ordering experience with live tracking and smooth cart interactions.",
+    image: food,
+    tags: ["JavaScript", "CSS", "HTML"],
+    links: "https://restaurant-demo-nine-opal.vercel.app",
+    github: "https://github.com/NextRatedNtekim/restaurant-demo",
+    accent: "#fdba74",
+    status: {
+    text: "Live",
+    isLive: true
+    }
+  },
+  {
+     title: " TASKr",
+    description: "To-do list with modern UI and advanced functionalities",
+    image: Music,
+    tags: ["React", "Tailwind", "Framer", "Supabase"],
+    links: "https://taskr-liard.vercel.app",
+    // github: "#",
+    accent: "#2dde6e",
+    status: {
+    text: "Live",
+    isLive: true
+    }
+  },
   {
     title: "Fintech App",
     description: "A modern fintech solution with seamless transactions and real-time analytics dashboard.",
@@ -27,20 +53,34 @@ const projects = [
     }
   },
   {
-     title: " TASKr",
-    description: "To-do list with modern UI and advanced functionalities",
-    image: Music,
-    tags: ["React", "Tailwind", "Framer"],
-    links: "https://taskr-liard.vercel.app",
+    title: "Shopify",
+    description: "A Premimun Shopify site where you can place orders online.",
+    image: commerce,
+    tags: ["React", "Tailwind", "Node.js", "Nexjs", "Supabase"],
+    links: "#",
     github: "#",
-    accent: "#2dde6e",
+    accent: "#98e0ff",
     status: {
-    text: "Live",
-    isLive: true
+    text: "Developing",
+    isLive: false
     }
   },
   {
-    title: "Weather App",
+    title: "Wedding and Events Booking",
+    description: "A modern Website where you can make orders and stuffs",
+    image: commerce,
+    tags: ["React", "Tailwind", "Node.js"],
+    links: "#",
+    github: "#",
+    accent: "#ff98b2",
+    status: {
+    text: "Developing",
+    isLive: false
+    }
+  },
+  
+  {
+    title: "Real Estate",
     description: "Real-time weather updates with a clean, responsive UI and location-aware forecasting.",
     image: Weather,
     tags: ["React", "API", "Tailwind"],
@@ -52,19 +92,19 @@ const projects = [
     isLive: false
     }
   },
-  // {
-  //   title: "Music App",
-  //   description: "Stream and explore music with an intuitive interface and rich playback controls.",
-  //   image: Music,
-  //   tags: ["React", "Firebase", "Tailwind"],
-  //   links: "#",
-  //   github: "#",
-  //   accent: "#f0abfc",
-  //   status: {
-  //   text: "Developing",
-  //   isLive: false
-  //   }
-  // },
+  {
+    title: "Barber Shop",
+    description: "Stream and explore music with an intuitive interface and rich playback controls.",
+    image: Music,
+    tags: ["React", "Firebase", "Tailwind"],
+    links: "#",
+    github: "#",
+    accent: "#f0abfc",
+    status: {
+    text: "Developing",
+    isLive: false
+    }
+  },
   {
     title: "Hotel Booking App",
     description: "A polished booking experience with smooth search, filtering, and reservation flows.",
@@ -78,33 +118,7 @@ const projects = [
     isLive: false
     }
   },
-  {
-    title: "AI Chat Application",
-    description: "Conversational AI interface with streaming responses and a sleek modern design.",
-    image: AiChat,
-    tags: ["JavaScript", "CSS", "HTML"],
-    links: "#",
-    github: "#",
-    accent: "#fda4af",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
-    
-  },
-  {
-    title: "Food Delivery App",
-    description: "End-to-end food ordering experience with live tracking and smooth cart interactions.",
-    image: food,
-    tags: ["JavaScript", "CSS", "HTML"],
-    links: "https://restaurant-demo-nine-opal.vercel.app",
-    github: "https://github.com/NextRatedNtekim/restaurant-demo",
-    accent: "#fdba74",
-    status: {
-    text: "Live",
-    isLive: true
-    }
-  },
+ 
 ];
 
 // stable particles
