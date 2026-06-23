@@ -1,18 +1,3 @@
-// import Projects from "../components/projects";
-
-// function ProjectsPage() {
-
-//   return (
-//     <div>
-//       <Projects />
-//     </div>
-//   );
-// }
-
-
-// export default ProjectsPage;
-
-
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
@@ -77,21 +62,7 @@ function ProjectsPage() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Back button */}
-        {/* <motion.button
-          onClick={() => navigate(-1)}
-          initial={{ opacity: 0, x: -16 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-[#ffe998] transition-colors mb-10 group"
-        >
-          <FaArrowLeft
-            size={13}
-            className="group-hover:-translate-x-1 transition-transform duration-200"
-          />
-          Back to Home
-        </motion.button> */}
-
+        
         {/* Header */}
         <motion.div
           initial="hidden"

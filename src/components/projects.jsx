@@ -5,7 +5,7 @@ import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
 import Background from "../assets/bg-1.jpg";
 import Barber from "../assets/Barber.jpg";
-import Clothing from "../assets/Clothing.jpg";
+import Clothing from "../assets/clothing.jpg";
 import Consulting from "../assets/Consulting.jpg";
 import Furniture from "../assets/Furniture.jpg";
 import RealEstate from "../assets/RealEstate.jpg";
