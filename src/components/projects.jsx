@@ -1,153 +1,154 @@
 import { useRef, useState } from "react";
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { motion, useInView, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt, FaArrowRight  } from "react-icons/fa"
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
 import Background from "../assets/bg-1.jpg";
-import Weather from "../assets/Weather.png";
-import Music from "../assets/Music.png";
+import Barber from "../assets/Barber.jpg";
+import Clothing from "../assets/Clothing.jpg";
+import Consulting from "../assets/Consulting.jpg";
+import Furniture from "../assets/Furniture.jpg";
+import RealEstate from "../assets/RealEstate.jpg";
 import commerce from "../assets/Market.png";
-import AiChat from "../assets/ai.png";
+import Taskr from "../assets/taskr-og.jpeg";
 import hotel from "../assets/Hotel-Booking-App.png";
 import food from "../assets/Food-Delivery-App.png";
+import wedding from "../assets/wedding.jpg";
 
-// Data 
-const projects = [
-   {
-    title: "Food Delivery App",
+// Data
+export const projects = [
+  {
+    title: "Resturant",
     description: "End-to-end food ordering experience with live tracking and smooth cart interactions.",
     image: food,
     tags: ["JavaScript", "CSS", "HTML"],
     links: "https://restaurant-demo-nine-opal.vercel.app",
     github: "https://github.com/NextRatedNtekim/restaurant-demo",
     accent: "#fdba74",
-    status: {
-    text: "Live",
-    isLive: true
-    }
+    status: { text: "Live", isLive: true },
   },
-  {
-     title: " TASKr",
-    description: "To-do list with modern UI and advanced functionalities",
-    image: Music,
-    tags: ["React", "Tailwind", "Framer", "Supabase"],
-    links: "https://taskr-liard.vercel.app",
-    // github: "#",
-    accent: "#2dde6e",
-    status: {
-    text: "Live",
-    isLive: true
-    }
-  },
-  {
-    title: "Fintech App",
-    description: "A modern fintech solution with seamless transactions and real-time analytics dashboard.",
-    image: commerce,
-    tags: ["React", "Tailwind", "Node.js"],
-    links: "#",
-    github: "#",
-    accent: "#ffe998",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
-  },
-  {
-    title: "Shopify",
-    description: "A Premimun Shopify site where you can place orders online.",
-    image: commerce,
-    tags: ["React", "Tailwind", "Node.js", "Nexjs", "Supabase"],
-    links: "#",
-    github: "#",
-    accent: "#98e0ff",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
-  },
-  {
-    title: "Wedding and Events Booking",
-    description: "A modern Website where you can make orders and stuffs",
-    image: commerce,
-    tags: ["React", "Tailwind", "Node.js"],
-    links: "#",
-    github: "#",
-    accent: "#ff98b2",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
-  },
-  
   {
     title: "Real Estate",
-    description: "Real-time weather updates with a clean, responsive UI and location-aware forecasting.",
-    image: Weather,
+    description: "Real-time property listings with a clean, responsive UI and location-aware search.",
+    image: RealEstate,
     tags: ["React", "API", "Tailwind"],
     links: "#",
     github: "#",
     accent: "#93c5fd",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
+    status: { text: "Live", isLive: true },
   },
   {
+    title: "WithTaskr",
+    description: "To-do list with modern UI and advanced functionalities",
+    image: Taskr,
+    tags: ["React", "Zustand", "Framer", "Supabase"],
+    links: "https://taskr-liard.vercel.app",
+    accent: "#2dde6e",
+    status: { text: "Live", isLive: true },
+  },
+  {
+    title: "Clothing Store",
+    description: "A modern Clothing Website for business startups or Companies",
+    image: Clothing,
+    tags: ["React", "Tailwind", "Node.js"],
+    links: "#",
+    github: "#",
+    accent: "#ffe998",
+    status: { text: "Developing", isLive: false },
+  },
+  {
+    title: "Shopify",
+    description: "A Premium Shopify site where you can place orders online.",
+    image: commerce,
+    tags: ["React", "Tailwind", "Node.js", "Next.js", "Supabase"],
+    links: "#",
+    github: "#",
+    accent: "#98e0ff",
+    status: { text: "Developing", isLive: false },
+  },
+  {
+    title: "Wedding and Events Booking",
+    description: "A modern Website where you can make orders and bookings",
+    image: wedding,
+    tags: ["React", "Tailwind", "Node.js"],
+    links: "#",
+    github: "#",
+    accent: "#ff98b2",
+    status: { text: "Developing", isLive: false },
+  },
+  
+  {
     title: "Barber Shop",
-    description: "Stream and explore music with an intuitive interface and rich playback controls.",
-    image: Music,
+    description: "Book appointments and explore services with a sleek, intuitive interface.",
+    image: Barber,
     tags: ["React", "Firebase", "Tailwind"],
     links: "#",
     github: "#",
     accent: "#f0abfc",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
+    status: { text: "Developing", isLive: false },
   },
   {
-    title: "Hotel Booking App",
+    title: "Furniture",
+    description: "Order and make payments for premium furniture pieces online.",
+    image: Furniture,
+    tags: ["React", "Firebase", "Tailwind"],
+    links: "#",
+    github: "#",
+    accent: "#eb4112",
+    status: { text: "Developing", isLive: false },
+  },
+  {
+    title: "Consulting Firm",
+    description: "Professional consulting firm website with service listings and contact flows.",
+    image: Consulting,
+    tags: ["React", "Firebase", "Tailwind"],
+    links: "#",
+    github: "#",
+    accent: "#f0abfc",
+    status: { text: "Developing", isLive: false },
+  },
+  {
+    title: "Hotel",
     description: "A polished booking experience with smooth search, filtering, and reservation flows.",
     image: hotel,
     tags: ["JavaScript", "CSS", "HTML"],
     links: "#",
     github: "#",
     accent: "#6ee7b7",
-    status: {
-    text: "Developing",
-    isLive: false
-    }
+    status: { text: "Developing", isLive: false },
   },
- 
 ];
 
-// stable particles
+// Stable particles
 const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   left: `${(i * 8.3 + 6) % 100}%`,
-  top:  `${(i * 14.1 + 9) % 100}%`,
+  top: `${(i * 14.1 + 9) % 100}%`,
   delay: i * 0.35,
   duration: 3.5 + (i % 4),
 }));
 
-// ─── Variants 
+// Variants
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
   visible: (i = 0) => ({
-    opacity: 1, y: 0,
+    opacity: 1,
+    y: 0,
     transition: { duration: 0.8, delay: i * 0.11, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
-const cardVariant = {
-  hidden:  { opacity: 0, y: 55, scale: 0.93 },
+export const cardVariant = {
+  hidden: { opacity: 0, y: 55, scale: 0.93 },
   visible: (i) => ({
-    opacity: 1, y: 0, scale: 1,
+    opacity: 1,
+    y: 0,
+    scale: 1,
     transition: { duration: 0.8, delay: 0.05 + i * 0.1, ease: [0.16, 1, 0.3, 1] },
   }),
 };
 
-//  Project Card 
-function ProjectCard({ project, idx }) {
+// Project Card
+export function ProjectCard({ project, idx }) {
   const [hovered, setHovered] = useState(false);
   const ref = useRef(null);
 
@@ -181,7 +182,7 @@ function ProjectCard({ project, idx }) {
         }}
       />
 
-      {/* ── Image ── */}
+      {/* Image */}
       <div className="relative overflow-hidden h-52 flex-shrink-0">
         <motion.img
           src={project.image}
@@ -190,8 +191,6 @@ function ProjectCard({ project, idx }) {
           animate={{ scale: hovered ? 1.07 : 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         />
-
-        {/* Gradient overlay on image */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
         {/* Overlay actions */}
@@ -227,13 +226,17 @@ function ProjectCard({ project, idx }) {
           )}
         </AnimatePresence>
 
-        {/* Tag strip on image bottom */}
+        {/* Tag strip */}
         <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
           {project.tags.map((tag, i) => (
             <span
               key={i}
               className="text-[10px] px-2 py-0.5 rounded-full backdrop-blur-md font-medium"
-              style={{ background: `${project.accent}22`, color: project.accent, border: `1px solid ${project.accent}40` }}
+              style={{
+                background: `${project.accent}22`,
+                color: project.accent,
+                border: `1px solid ${project.accent}40`,
+              }}
             >
               {tag}
             </span>
@@ -241,10 +244,13 @@ function ProjectCard({ project, idx }) {
         </div>
       </div>
 
-      {/* ── Content ── */}
+      {/* Content */}
       <div className="relative z-10 p-5 flex flex-col gap-3 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h2 className="text-lg font-bold text-white leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <h2
+            className="text-lg font-bold text-white leading-snug"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             {project.title}
           </h2>
           <motion.div
@@ -257,45 +263,39 @@ function ProjectCard({ project, idx }) {
 
         <p className="text-gray-400 text-sm leading-relaxed flex-1">{project.description}</p>
 
-        {/* Bottom link row */}
         <div className="flex justify-between items-center">
           <div className="flex gap-3 pt-3 border-t border-white/5">
-          <a
-            href={project.links}
-            className="flex items-center gap-1.5 text-xs font-semibold text-black px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
-            style={{ background: `linear-gradient(135deg, #ffe998, #57370d)` }}
-          >
-            <FaExternalLinkAlt size={11} /> Live
-          </a>
-          <a
-            href={project.github}
-            className="flex items-center gap-1.5 text-xs font-semibold text-[#ffe998] px-3 py-1.5 rounded-lg border border-[#ffe998]/30 hover:bg-[#ffe998]/10 transition"
-          >
-            <FaGithub size={11} /> GitHub
-          </a>
+            <a
+              href={project.links}
+              className="flex items-center gap-1.5 text-xs font-semibold text-black px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
+              style={{ background: `linear-gradient(135deg, #ffe998, #57370d)` }}
+            >
+              <FaExternalLinkAlt size={11} /> Live
+            </a>
+            <a
+              href={project.github}
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#ffe998] px-3 py-1.5 rounded-lg border border-[#ffe998]/30 hover:bg-[#ffe998]/10 transition"
+            >
+              <FaGithub size={11} /> GitHub
+            </a>
           </div>
           <div className="flex gap-2 items-center">
-
-          {project.status.isLive && (
-            <motion.div
-              animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 1.8, repeat: Infinity }}
-              className="w-1 h-1 rounded-full bg-green-400"
-            />
-          )}
-
-          <div className="text-gray-500 font-sm text-[13px]">
-            {project.status.text}
+            {project.status.isLive && (
+              <motion.div
+                animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 1.8, repeat: Infinity }}
+                className="w-1 h-1 rounded-full bg-green-400"
+              />
+            )}
+            <div className="text-gray-500 font-sm text-[13px]">{project.status.text}</div>
           </div>
-
-        </div>
         </div>
       </div>
     </motion.div>
   );
 }
 
-// ─── Projects 
+// ─── Home Section: shows only 3 featured projects ───
 function Projects() {
   const sectionRef = useRef(null);
   const headerInView = useInView(sectionRef, { once: true, margin: "-8%" });
@@ -304,6 +304,9 @@ function Projects() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const springBgY = useSpring(bgY, { stiffness: 50, damping: 18 });
   const navigate = useNavigate();
+
+  // Only show the first 3 projects on the home page
+  const featuredProjects = projects.slice(0, 3);
 
   return (
     <section
@@ -332,14 +335,15 @@ function Projects() {
         ))}
       </div>
 
-      {/* ── Header ── */}
+      {/* Header */}
       <motion.div
         initial="hidden"
         animate={headerInView ? "visible" : "hidden"}
         className="relative z-10 text-center max-w-2xl mx-auto mb-16"
       >
         <motion.div
-          custom={0} variants={fadeUp}
+          custom={0}
+          variants={fadeUp}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-5"
         >
           <IoSparkles size={13} className="text-[#ffe998]" />
@@ -347,7 +351,8 @@ function Projects() {
         </motion.div>
 
         <motion.h2
-          custom={1} variants={fadeUp}
+          custom={1}
+          variants={fadeUp}
           className="text-3xl md:text-5xl font-black leading-tight text-white mb-4"
           style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
         >
@@ -363,14 +368,14 @@ function Projects() {
         </motion.p>
       </motion.div>
 
-      {/* ── Grid ── */}
+      {/* Grid — 3 featured projects */}
       <div className="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, idx) => (
+        {featuredProjects.map((project, idx) => (
           <ProjectCard key={idx} project={project} idx={idx} />
         ))}
       </div>
 
-      {/* ── See More ── */}
+      {/* View Projects CTA */}
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -383,7 +388,7 @@ function Projects() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 320, damping: 20 }}
-          className="relative overflow-hidden flex items-center gap-2 px-8 py-3.5 rounded-full border border-[#ffe998]/35 text-[#ffe998] text-sm font-semibold hover:bg-[#ffe998]/8 transition-colors"
+          className="relative overflow-hidden flex items-center gap-2 px-8 py-3.5 rounded-full border border-[#ffe998]/35 text-[#ffe998] text-sm font-semibold hover:bg-[#ffe998]/8 transition-colors cursor-pointer"
         >
           <motion.span
             className="absolute inset-0 bg-[#ffe998]/10 rounded-full"
@@ -391,9 +396,7 @@ function Projects() {
             whileHover={{ x: "200%" }}
             transition={{ duration: 0.55, ease: "easeInOut" }}
           />
-          
-          <button content="View Projects" className="cursor-pointer" >View Projects</button>
-          
+          View All Projects
           <FaArrowRight size={15} />
         </motion.div>
       </motion.div>
@@ -402,5 +405,3 @@ function Projects() {
 }
 
 export default Projects;
-
-

@@ -8,7 +8,7 @@ import Background from "../assets/bg-2.jpg"
 // Social links 
 const socials = [
   { icon: FaGithub,        label: "GitHub",    href: "https://github.com/NextRatedNtekim" },
-  { icon: FaTwitter,       label: "Twitter",   href: "#" },
+  { icon: FaTwitter,       label: "Twitter",   href: "https://x.com/underrated_lx" },
   { icon: FaLinkedin,      label: "LinkedIn",  href: "https://www.linkedin.com/in/samuel-ntekim-184a56303?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
   { icon: FaWhatsapp, label: "WhatsApp",  href: "https://wa.me/qr/EFURGDSMYEJTL1" },
 ];
