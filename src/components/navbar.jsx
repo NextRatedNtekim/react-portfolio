@@ -192,7 +192,7 @@ function Navbar() {
             className="font-serif italic tracking-[0.2em] text-base select-none"
             style={{ fontFamily: "'Georgia', serif" }}
           >
-            <Link to="/">PORFOLIO</Link>
+            <Link to="/">PORTFOLIO</Link>
           </motion.div>
 
           {/* Desktop links */}
