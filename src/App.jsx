@@ -5,11 +5,11 @@ import About from "./components/about"
 import Contact from "./pages/contact";
 import Experience from "./components/experience";
 import Projects from "./pages/projects";
-import { Preloader } from "./components/preloader";
 
 export default function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
+      
       <Route path="/" element={<Root />}>
         <Route index element={<HomePage />} /> 
         <Route path="/about" element={<About />} />

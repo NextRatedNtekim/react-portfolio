@@ -12,6 +12,15 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
+import { useLocation } from "react-router-dom";
+
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [pathname]);
+  return null;
+}
+
 
 // ── Animation variants 
 
@@ -97,6 +106,7 @@ function NavLink({ to, children, onClick }) {
 // ── Main Component 
 
 function Navbar() {
+  
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -128,7 +138,7 @@ function Navbar() {
 
   return (
     <div className="h-screen relative">
-
+      <ScrollToTop />
       {/* ── Navbar ── */}
       <motion.nav
         className="fixed top-3 left-4 right-4 z-50 rounded-xl text-white"

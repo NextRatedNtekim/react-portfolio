@@ -98,9 +98,9 @@ function ProjectsPage() {
         </motion.div>
 
         {/* Live Projects */}
-        {liveProjects.length > 0 && (
+        {/* {liveProjects.length > 0 && ( */}
           <div className="mb-16">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: -12 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -113,7 +113,7 @@ function ProjectsPage() {
               </h2>
               <div className="flex-1 h-px bg-white/10" />
               <span className="text-gray-500 text-xs">{liveProjects.length} projects</span>
-            </motion.div>
+            </motion.div> */}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveProjects.map((project, idx) => (
@@ -121,12 +121,12 @@ function ProjectsPage() {
               ))}
             </div>
           </div>
-        )}
+        {/* )} */}
 
         {/* In Progress Projects */}
-        {inProgressProjects.length > 0 && (
+        {/* {inProgressProjects.length > 0 && ( */}
           <div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: -12 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -139,7 +139,7 @@ function ProjectsPage() {
               </h2>
               <div className="flex-1 h-px bg-white/10" />
               <span className="text-gray-500 text-xs">{inProgressProjects.length} projects</span>
-            </motion.div>
+            </motion.div> */}
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {inProgressProjects.map((project, idx) => (
@@ -147,7 +147,7 @@ function ProjectsPage() {
               ))}
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
     </section>
   );
