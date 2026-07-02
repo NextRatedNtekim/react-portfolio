@@ -71,10 +71,10 @@ export const projects = [
     description: "A modern Website where you can make orders and bookings",
     image: wedding,
     tags: ["React", "Tailwind", "Node.js"],
-    links: "#",
+    links: "https://magnum-nu.vercel.app",
     github: "#",
     accent: "#ff98b2",
-    status: { text: "Developing", isLive: false },
+    status: { text: "Live", isLive: true },
   },
   
   {
