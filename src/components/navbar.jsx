@@ -8,8 +8,6 @@ import {
   motion,
   AnimatePresence,
   useScroll,
-  useTransform,
-  useSpring,
   useMotionValueEvent,
 } from "framer-motion";
 import { useLocation } from "react-router-dom";
@@ -113,20 +111,13 @@ function Navbar() {
 
   const { scrollY } = useScroll();
 
-  // Track scroll position for condensed state
+  // Track scroll position for condensed state — a plain boolean threshold
+  // instead of interpolating padding/blur/opacity every frame. The visual
+  // transition is now handled by a CSS `transition` on the className below,
+  // which is far cheaper than recalculating motion values on scroll.
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 60);
   });
-
-  // Smooth spring for padding/blur transitions
-  const rawProgress = useTransform(scrollY, [0, 120], [0, 1]);
-  const progress = useSpring(rawProgress, { stiffness: 80, damping: 20 });
-
-  // Navbar shrinks and gains a more opaque backdrop on scroll
-  const paddingY = useTransform(progress, [0, 1], [20, 10]);
-  const bgOpacity = useTransform(progress, [0, 1], [0.5, 0.92]);
-  const borderOpacity = useTransform(progress, [0, 1], [0, 0.18]);
-  const blurPx = useTransform(progress, [0, 1], [6, 18]);
 
   const handleLinkClick = () => setToggleMenu(false);
 
@@ -141,26 +132,14 @@ function Navbar() {
       <ScrollToTop />
       {/* ── Navbar ── */}
       <motion.nav
-        className="fixed top-3 left-4 right-4 z-50 rounded-xl text-white"
+        className={`fixed top-3 left-4 right-4 z-50 rounded-xl text-white border transition-all duration-300 ease-out ${
+          scrolled
+            ? "py-2.5 bg-black/90 border-white/20 backdrop-blur-xl"
+            : "py-5 bg-black/50 border-transparent backdrop-blur-md"
+        }`}
         variants={navbarVariants}
         initial="hidden"
         animate="visible"
-        style={{
-          paddingTop: paddingY,
-          paddingBottom: paddingY,
-          backgroundColor: useTransform(
-            bgOpacity,
-            (v) => `rgba(0,0,0,${v})`
-          ),
-          borderColor: useTransform(
-            borderOpacity,
-            (v) => `rgba(255,255,255,${v})`
-          ),
-          borderWidth: "1px",
-          borderStyle: "solid",
-          backdropFilter: useTransform(blurPx, (v) => `blur(${v}px)`),
-          WebkitBackdropFilter: useTransform(blurPx, (v) => `blur(${v}px)`),
-        }}
       >
         <div className="flex justify-between items-center px-5">
 
@@ -200,9 +179,9 @@ function Navbar() {
           <motion.div
             variants={logoVariants}
             className="font-serif italic tracking-[0.2em] text-base select-none"
-            style={{ fontFamily: "'Georgia', serif" }}
+            style={{ fontFamily: "var(--font-serif)" }}
           >
-            <Link to="/">PORTFOLIO</Link>
+            <Link to="/">LocksCodes</Link>
           </motion.div>
 
           {/* Desktop links */}
@@ -230,7 +209,7 @@ function Navbar() {
                 whileHover={{
                   backgroundColor: "rgba(255,255,255,0.12)",
                   borderColor: "rgba(255,255,255,0.8)",
-                  color: "#ffe998",
+                  color: "#d4ff4f",
                   scale: 1.03,
                 }}
                 whileTap={{ scale: 0.96 }}
@@ -282,7 +261,7 @@ function Navbar() {
                     to={to}
                     onClick={handleLinkClick}
                     className="text-3xl font-serif italic tracking-widest text-white/90 hover:text-white transition-colors"
-                    style={{ fontFamily: "'Georgia', serif" }}
+                    style={{ fontFamily: "var(--font-serif)" }}
                   >
                     {label}
                   </Link>

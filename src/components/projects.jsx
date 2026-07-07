@@ -53,7 +53,7 @@ export const projects = [
     tags: ["React", "Tailwind", "API"],
     links: "https://shopifydemo-beta.vercel.app/",
     github: "https://github.com/NextRatedNtekim/Clothing-website",
-    accent: "#ffe998",
+    accent: "#fbbf24",
     status: { text: "Live", isLive: true },
   },
   // {
@@ -119,13 +119,7 @@ export const projects = [
   },
 ];
 
-// Stable particles
-const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
-  left: `${(i * 8.3 + 6) % 100}%`,
-  top: `${(i * 14.1 + 9) % 100}%`,
-  delay: i * 0.35,
-  duration: 3.5 + (i % 4),
-}));
+// (Ambient particle field removed from render — see Projects() below)
 
 // Variants
 const fadeUp = {
@@ -209,7 +203,7 @@ export function ProjectCard({ project, idx }) {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.04, type: "spring", stiffness: 300 }}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-black shadow-lg"
-                style={{ background: `linear-gradient(135deg, #ffe998, #57370d)` }}
+                style={{ background: `linear-gradient(135deg, #d4ff4f, #1a1f0d)` }}
               >
                 <FaExternalLinkAlt size={12} /> Live Demo
               </motion.a>
@@ -249,7 +243,7 @@ export function ProjectCard({ project, idx }) {
         <div className="flex items-start justify-between gap-2">
           <h2
             className="text-lg font-bold text-white leading-snug"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            style={{ fontFamily: "var(--font-sans)" }}
           >
             {project.title}
           </h2>
@@ -268,13 +262,13 @@ export function ProjectCard({ project, idx }) {
             <a
               href={project.links}
               className="flex items-center gap-1.5 text-xs font-semibold text-black px-3 py-1.5 rounded-lg transition-opacity hover:opacity-80"
-              style={{ background: `linear-gradient(135deg, #ffe998, #57370d)` }}
+              style={{ background: `linear-gradient(135deg, #d4ff4f, #1a1f0d)` }}
             >
               <FaExternalLinkAlt size={11} /> Live
             </a>
             <a
               href={project.github}
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#ffe998] px-3 py-1.5 rounded-lg border border-[#ffe998]/30 hover:bg-[#ffe998]/10 transition"
+              className="flex items-center gap-1.5 text-xs font-semibold text-[#d4ff4f] px-3 py-1.5 rounded-lg border border-[#d4ff4f]/30 hover:bg-[#d4ff4f]/10 transition"
             >
               <FaGithub size={11} /> GitHub
             </a>
@@ -320,20 +314,11 @@ function Projects() {
       </motion.div>
 
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#ffe998]/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-[#d4ff4f]/5 blur-[100px] rounded-full pointer-events-none" />
 
-      {/* Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full"
-            style={{ left: p.left, top: p.top, backgroundColor: "#ffe998" }}
-            animate={{ y: [0, -14, 0], opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ))}
-      </div>
+      {/* Particle field removed — parallax bg + header fade-ups + per-card
+          hover states already carry the section; the extra ambient loop
+          was pure decoration layered on top. */}
 
       {/* Header */}
       <motion.div
@@ -344,20 +329,23 @@ function Projects() {
         <motion.div
           custom={0}
           variants={fadeUp}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-5"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4ff4f]/30 bg-white/5 backdrop-blur-md mb-5"
         >
-          <IoSparkles size={13} className="text-[#ffe998]" />
+          <IoSparkles size={13} className="text-[#d4ff4f]" />
           <span className="text-[11px] tracking-widest uppercase text-gray-300">Projects</span>
         </motion.div>
 
         <motion.h2
           custom={1}
           variants={fadeUp}
-          className="text-3xl md:text-5xl font-black leading-tight text-white mb-4"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-3xl md:text-5xl font-bold leading-tight text-white mb-4"
+          style={{ fontFamily: "var(--font-sans)" }}
         >
           Showcasing{" "}
-          <span className="italic font-normal" style={{ color: "#ffe998" }}>
+          <span
+            className="italic font-normal"
+            style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+          >
             Innovative Web Solutions
           </span>
         </motion.h2>
@@ -388,10 +376,10 @@ function Projects() {
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 320, damping: 20 }}
-          className="relative overflow-hidden flex items-center gap-2 px-8 py-3.5 rounded-full border border-[#ffe998]/35 text-[#ffe998] text-sm font-semibold hover:bg-[#ffe998]/8 transition-colors cursor-pointer"
+          className="relative overflow-hidden flex items-center gap-2 px-8 py-3.5 rounded-full border border-[#d4ff4f]/35 text-[#d4ff4f] text-sm font-semibold hover:bg-[#d4ff4f]/8 transition-colors cursor-pointer"
         >
           <motion.span
-            className="absolute inset-0 bg-[#ffe998]/10 rounded-full"
+            className="absolute inset-0 bg-[#d4ff4f]/10 rounded-full"
             initial={{ x: "-100%", skewX: -15 }}
             whileHover={{ x: "200%" }}
             transition={{ duration: 0.55, ease: "easeInOut" }}

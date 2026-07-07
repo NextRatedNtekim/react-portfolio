@@ -35,10 +35,10 @@ export default function Footer() {
       
 
       {/* Top ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[160px] bg-[#ffe998]/6 blur-[90px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[160px] bg-[#d4ff4f]/6 blur-[90px] rounded-full pointer-events-none" />
       
       
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[220px] h-px bg-gradient-to-r from-transparent via-[#ffe998]/60 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[220px] h-px bg-gradient-to-r from-transparent via-[#d4ff4f]/60 to-transparent" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-14">
 
@@ -48,7 +48,7 @@ export default function Footer() {
           animate={inView ? { scaleX: 1, opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           style={{ originX: 0 }}
-          className="w-full h-px bg-gradient-to-r from-[#ffe998]/30 via-white/10 to-transparent mb-8"
+          className="w-full h-px bg-gradient-to-r from-[#d4ff4f]/30 via-white/10 to-transparent mb-8"
         />
 
         {/*  Bottom row  */}
@@ -75,7 +75,7 @@ export default function Footer() {
                 whileHover={{ y: -3, scale: 1.15 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 350, damping: 18 }}
-                className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center text-gray-500 hover:text-[#ffe998] hover:border-[#ffe998]/30 hover:bg-[#ffe998]/8 transition-colors duration-300"
+                className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center text-gray-500 hover:text-[#d4ff4f] hover:border-[#d4ff4f]/30 hover:bg-[#d4ff4f]/8 transition-colors duration-300"
               >
                 <Icon size={15} />
               </motion.a>

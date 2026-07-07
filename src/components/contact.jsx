@@ -25,13 +25,7 @@ const contactInfo = [
   },
 ];
 
-// stable particles
-const PARTICLES = Array.from({ length: 16 }, (_, i) => ({
-  left: `${(i * 9.1 + 4) % 100}%`,
-  top:  `${(i * 13.7 + 6) % 100}%`,
-  delay: i * 0.32,
-  duration: 3.5 + (i % 4),
-}));
+// (Ambient particle field removed from render — see Contact() below)
 
 // ─── Variants ─────────────────────────────────────────────────────────────────
 const fadeUp = {
@@ -77,7 +71,7 @@ const Contact = () => {
   const inputClass = (field) =>
     `w-full px-4 py-3 text-sm bg-white/[0.04] rounded-xl border outline-none transition-all duration-300 placeholder:text-gray-600 text-white ${
       focused === field
-        ? "border-[#ffe998]/60 ring-1 ring-[#ffe998]/30 bg-[#ffe998]/5"
+        ? "border-[#d4ff4f]/60 ring-1 ring-[#d4ff4f]/30 bg-[#d4ff4f]/5"
         : "border-white/10 hover:border-white/20"
     }`;
 
@@ -108,22 +102,12 @@ const Contact = () => {
     >
       {/* Parallax bg glow */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y: springBgY }}>
-        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[#ffe998]/6 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[#57370d]/15 rounded-full blur-[80px]" />
+        <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-[#d4ff4f]/6 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[#1a1f0d]/15 rounded-full blur-[80px]" />
       </motion.div>
 
-      {/* Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full"
-            style={{ left: p.left, top: p.top, backgroundColor: "#ffe998" }}
-            animate={{ y: [0, -14, 0], opacity: [0.15, 0.5, 0.15] }}
-            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ))}
-      </div>
+      {/* Particle field removed — the form already has plenty of feedback
+          motion (focus states, submit shimmer, status toast). */}
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
@@ -135,19 +119,22 @@ const Contact = () => {
         >
           <motion.div
             custom={0} variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-5"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4ff4f]/30 bg-white/5 backdrop-blur-md mb-5"
           >
-            <Sparkles size={13} className="text-[#ffe998]" />
+            <Sparkles size={13} className="text-[#d4ff4f]" />
             <span className="text-[11px] tracking-widest uppercase text-gray-300">Get in touch</span>
           </motion.div>
 
           <motion.h2
             custom={1} variants={fadeUp}
-            className="text-3xl md:text-5xl font-black leading-tight text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-3xl md:text-5xl font-bold leading-tight text-white mb-4"
+            style={{ fontFamily: "var(--font-sans)" }}
           >
             Let's build{" "}
-            <span className="italic font-normal" style={{ color: "#ffe998" }}>
+            <span
+              className="italic font-normal"
+              style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+            >
               something great.
             </span>
           </motion.h2>
@@ -167,12 +154,12 @@ const Contact = () => {
             animate={formInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative p-[1px] rounded-3xl"
-            style={{ background: "linear-gradient(135deg, rgba(255,233,152,0.2) 0%, transparent 50%, rgba(87,55,13,0.15) 100%)" }}
+            style={{ background: "linear-gradient(135deg, rgba(212,255,79,0.2) 0%, transparent 50%, rgba(26,31,13,0.15) 100%)" }}
           >
             <div className="bg-black/60 backdrop-blur-md rounded-3xl p-7 sm:p-8">
               <h3
-                className="text-xl font-black text-white mb-6"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                className="text-xl font-bold text-white mb-6"
+                style={{ fontFamily: "var(--font-sans)" }}
               >
                 Send a Message
               </h3>
@@ -218,7 +205,7 @@ const Contact = () => {
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ type: "spring", stiffness: 320, damping: 20 }}
-                  className="relative w-full overflow-hidden py-3.5 rounded-xl bg-gradient-to-br from-[#ffe998] to-[#57370d] text-black text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#ffe998]/20 hover:shadow-[#ffe998]/35 transition-shadow disabled:opacity-60 cusor-pointer"
+                  className="relative w-full overflow-hidden py-3.5 rounded-xl bg-gradient-to-br from-[#d4ff4f] to-[#1a1f0d] text-black text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#d4ff4f]/20 hover:shadow-[#d4ff4f]/35 transition-shadow disabled:opacity-60 cusor-pointer"
                 >
                   {/* shimmer */}
                   <motion.span

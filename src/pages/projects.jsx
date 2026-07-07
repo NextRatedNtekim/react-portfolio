@@ -6,14 +6,6 @@ import { FaArrowLeft } from "react-icons/fa";
 import Background from "../assets/bg-1.jpg";
 import { projects, ProjectCard } from "../components/projects";
 
-// Stable particles (more for the full page)
-const PARTICLES = Array.from({ length: 30 }, (_, i) => ({
-  left: `${(i * 6.7 + 4) % 100}%`,
-  top: `${(i * 11.3 + 7) % 100}%`,
-  delay: i * 0.28,
-  duration: 3 + (i % 5),
-}));
-
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
   visible: (i = 0) => ({
@@ -46,20 +38,11 @@ function ProjectsPage() {
       </motion.div>
 
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#ffe998]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#d4ff4f]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full"
-            style={{ left: p.left, top: p.top, backgroundColor: "#ffe998" }}
-            animate={{ y: [0, -14, 0], opacity: [0.2, 0.6, 0.2] }}
-            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ))}
-      </div>
+      {/* Particle field removed here too — this page carries the same
+          parallax bg + fade-up header pattern as the home Projects
+          section, this was the heaviest particle count (30) in the app. */}
 
       <div className="relative z-10 max-w-6xl mx-auto">
         
@@ -72,9 +55,9 @@ function ProjectsPage() {
           <motion.div
             custom={0}
             variants={fadeUp}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-5"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4ff4f]/30 bg-white/5 backdrop-blur-md mb-5"
           >
-            <IoSparkles size={13} className="text-[#ffe998]" />
+            <IoSparkles size={13} className="text-[#d4ff4f]" />
             <span className="text-[11px] tracking-widest uppercase text-gray-300">
               All Projects
             </span>
@@ -83,11 +66,14 @@ function ProjectsPage() {
           <motion.h1
             custom={1}
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-black leading-tight text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-3xl md:text-5xl font-bold leading-tight text-white mb-4"
+            style={{ fontFamily: "var(--font-sans)" }}
           >
             Every{" "}
-            <span className="italic font-normal" style={{ color: "#ffe998" }}>
+            <span
+              className="italic font-normal"
+              style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+            >
               Build, Every Idea
             </span>
           </motion.h1>
@@ -133,7 +119,7 @@ function ProjectsPage() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-3 mb-8"
             >
-              <div className="w-2 h-2 rounded-full bg-[#ffe998]/70" />
+              <div className="w-2 h-2 rounded-full bg-[#d4ff4f]/70" />
               <h2 className="text-lg font-semibold text-white tracking-wide uppercase text-sm">
                 In Progress
               </h2>

@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
-import { FaReact, FaFigma, FaGithub, FaPython, FaNodeJs, FaArrowDown } from "react-icons/fa";
+import { FaReact, FaGithub, FaArrowDown } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
+import { SiFramer } from "react-icons/si";
 import { DiJavascript } from "react-icons/di";
 import { IoSparkles } from "react-icons/io5";
-// import Background from "../assets/portait.jpg";
+import { BsTypescript } from "react-icons/bs";
+import { RiSupabaseFill, RiNextjsFill } from "react-icons/ri";
 import Background from "../assets/profile.png"
 
 // Skills Data 
@@ -13,14 +15,16 @@ const skills = [
   { label: "React",       Icon: FaReact  },
   { label: "Tailwind CSS",Icon: RiTailwindCssFill  },
   { label: "GitHub",      Icon: FaGithub },
-  { label: "Figma",       Icon: FaFigma  },
+  { label: "FRamer",       Icon: SiFramer  },
   { label: "JavaScript",  Icon: DiJavascript  },
-  { label: "Python",      Icon: FaPython  },
-  { label: "Node.js",     Icon: FaNodeJs  },
+  { label: "TypeScript",  Icon: BsTypescript  },
+  { label: "Supabase",      Icon: RiSupabaseFill  },
+  { label: "Nextjs",     Icon: RiNextjsFill  },
 ];
 
-// Floating Particle (stable positions via index)
-const PARTICLES = Array.from({ length: 14 }, (_, i) => ({
+// Floating Particle (stable positions via index) — trimmed from 14 to 8
+// to keep the ambient effect while cutting the number of animated layers.
+const PARTICLES = Array.from({ length: 8 }, (_, i) => ({
   left: `${(i * 7.3 + 5) % 100}%`,
   top:  `${(i * 11.7 + 3) % 100}%`,
   delay: i * 0.4,
@@ -82,15 +86,9 @@ function ScrollZoomIntro() {
         {/* ── Gradient vignette (static) ── */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/75 pointer-events-none" />
 
-        {/* ── Grain overlay ── */}
-        <div
-          className="absolute inset-0 opacity-[0.055] pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-            backgroundSize: "128px",
-          }}
-        />
+        {/* Grain overlay removed — the fractal-noise SVG filter was one of
+            the more expensive things on this screen to paint every frame
+            and added no meaningful visual value at this scale. */}
 
         {/* ── Foreground content ── */}
         <motion.div
@@ -102,11 +100,11 @@ function ScrollZoomIntro() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#ffe998]/25 bg-white/5 backdrop-blur-md mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#d4ff4f]/25 bg-white/5 backdrop-blur-md mb-8"
           >
-            <IoSparkles size={13} className="text-[#ffe998]" />
-            <span className="text-[11px] tracking-widest uppercase text-[#ffe998]/80 font-medium">
-              Full‑Stack Developer
+            <IoSparkles size={13} className="text-[#d4ff4f]" />
+            <span className="text-[11px] tracking-widest uppercase text-[#d4ff4f]/80 font-medium">
+              Front-end Developer
             </span>
           </motion.div>
 
@@ -115,13 +113,18 @@ function ScrollZoomIntro() {
             variants={titleVariants}
             initial="hidden"
             animate="visible"
-            className="text-[clamp(2.8rem,8vw,7rem)] font-black leading-[1.05] tracking-tight text-white"
-            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            className="text-[clamp(2.8rem,8vw,7rem)] font-bold leading-[1.05] tracking-tight text-white"
+            style={{ fontFamily: "var(--font-sans)" }}
           >
             {["Meet", "Samuel", "Ntekim"].map((word, i) => (
               <motion.span key={i} variants={wordVariant} className="inline-block mr-[0.25em]">
                 {i === 1 ? (
-                  <span className="italic" style={{ color: "#ffe998" }}>{word}</span>
+                  <span
+                    className="italic"
+                    style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+                  >
+                    {word}
+                  </span>
                 ) : word}
               </motion.span>
             ))}
@@ -149,7 +152,7 @@ function ScrollZoomIntro() {
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
             >
-              <FaArrowDown size={16} className="text-[#ffe998]" />
+              <FaArrowDown size={16} className="text-[#d4ff4f]" />
             </motion.div>
           </motion.div>
         </motion.div>
@@ -165,7 +168,7 @@ function SkillsMarquee() {
   const doubled = [...skills, ...skills, ...skills];
 
   return (
-    <div className="relative w-full overflow-hidden py-6 border-y border-[#ffe998]/10">
+    <div className="relative w-full overflow-hidden py-6 border-y border-[#d4ff4f]/10">
       {/* Fade edges */}
       <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
@@ -180,9 +183,9 @@ function SkillsMarquee() {
         {doubled.map(({ label, Icon }, i) => (
           <div
             key={i}
-            className="flex items-center gap-2.5 px-5 py-2 rounded-full border border-[#ffe998]/15 bg-white/[0.03] backdrop-blur-sm whitespace-nowrap"
+            className="flex items-center gap-2.5 px-5 py-2 rounded-full border border-[#d4ff4f]/15 bg-white/[0.03] backdrop-blur-sm whitespace-nowrap"
           >
-            <Icon size={14} className="text-[#ffe998]" />
+            <Icon size={14} className="text-[#d4ff4f]" />
             <span className="text-sm font-semibold text-white/80 tracking-wide">{label}</span>
           </div>
         ))}
@@ -228,7 +231,7 @@ function HeroContent() {
     <div className="relative bg-black min-h-screen overflow-hidden flex flex-col items-center px-4 pt-20 pb-10 z-10">
 
       {/* Ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[#ffe998]/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full bg-[#d4ff4f]/5 blur-[100px] pointer-events-none" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -236,7 +239,7 @@ function HeroContent() {
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full"
-            style={{ left: p.left, top: p.top, backgroundColor: "#ffe998" }}
+            style={{ left: p.left, top: p.top, backgroundColor: "#d4ff4f" }}
             animate={{ y: [0, -18, 0], opacity: [0.3, 0.8, 0.3] }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -252,11 +255,11 @@ function HeroContent() {
         className="relative z-10 text-center max-w-3xl mx-auto"
       >
         {/* Badge */}
-        <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-6">
+        <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4ff4f]/30 bg-white/5 backdrop-blur-md mb-6">
           <motion.span
             animate={{ scale: [1, 1.4, 1] }}
             transition={{ duration: 1.8, repeat: Infinity }}
-            className="w-2 h-2 rounded-full bg-gradient-to-br from-[#ffe998] to-[#57370d]"
+            className="w-2 h-2 rounded-full bg-gradient-to-br from-[#d4ff4f] to-[#1a1f0d]"
           />
           <span className="text-[12px] sm:text-[13px] tracking-wider uppercase text-gray-300">
             Turning Ideas into Code
@@ -266,11 +269,14 @@ function HeroContent() {
         {/* Headline */}
         <motion.h2
           variants={item}
-          className="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-white mb-6"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight text-white mb-6"
+          style={{ fontFamily: "var(--font-sans)" }}
         >
           Building Interactive{" "}
-          <span className="italic font-normal" style={{ color: "#ffe998" }}>
+          <span
+            className="italic font-normal"
+            style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+          >
             Web Experiences.
           </span>
         </motion.h2>
@@ -313,8 +319,8 @@ const CosButton = ({ content, primary, onClick }) => (
     transition={{ type: "spring", stiffness: 350, damping: 20 }}
     className={`relative px-7 py-3.5 rounded-full text-sm font-semibold tracking-wide overflow-hidden transition-shadow duration-300 ${
       primary
-        ? "bg-gradient-to-br from-[#ffe998] to-[#57370d] text-black shadow-lg shadow-[#ffe998]/20 hover:shadow-[#ffe998]/40"
-        : "border border-[#ffe998]/35 text-[#ffe998] hover:bg-[#ffe998]/8"
+        ? "bg-gradient-to-br from-[#d4ff4f] to-[#1a1f0d] text-black shadow-lg shadow-[#d4ff4f]/20 hover:shadow-[#d4ff4f]/40"
+        : "border border-[#d4ff4f]/35 text-[#d4ff4f] hover:bg-[#d4ff4f]/8"
     }`}
   >
     {primary && (

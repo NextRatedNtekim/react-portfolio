@@ -1,60 +1,35 @@
 @import "tailwindcss";
 
 :root {
-    --color-background: green;
-    --color-gold: #ffe998;
-    --color-brown: #57370d;
+    --color-background: #0d0d0d;
+    /* Renamed accent tokens: lime replaces gold, ink replaces brown.
+       Old --color-gold / --color-brown kept as aliases so nothing
+       referencing them elsewhere silently breaks. */
+    --color-lime: #d4ff4f;
+    --color-ink: #1a1f0d;
+    --color-gold: var(--color-lime);
+    --color-brown: var(--color-ink);
+
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+body {
+    font-family: var(--font-sans);
 }
 
 @layer components {
     .glass {
-        background-color: rgba(38, 38, 38, 0.779);
+        background-color: rgba(20, 20, 20, 0.78);
         backdrop-filter: blur(16px);
-        border: 1px solid var(--color-gold);
+        border: 1px solid var(--color-lime);
     }
 }
 @layer utilities {
-    @keyframes fade-in {
-       from{
-        opacity: 0;
-        transform: translateY(20px);
-        filter: blur(10px);
-       } 
-       to{
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-       }
-       
-    }
-    @keyframes slow-drift {
-       0%, 100%{
-        transform: translate(0, 0);
-       } 
-       25%{
-        transform: translate(20px, -30px);
-       }
-       50%{
-        transform: translate(-15px, -20px);
-       }
-       75%{
-        transform: translate(30px, 10px);
-       }
-    }
-    .animate-fade-in{
-        animation: fade-in 0.8s ease-out both;
-       }
-    @keyframes marque {
-        0%{
-            transform: translateX(0);
-        }
-        100%{
-            transform: translateX(-50%);
-        }
-    }
-    .animate-marque{
-        animation: marque 24s linear infinite;
-    }
+    /* fade-in / slow-drift / marque keyframes removed: unused anywhere
+       in the codebase (marquee motion is driven inline via Framer Motion
+       in hero.jsx, not this CSS class). Kept file lean per the
+       "minimal animation" direction. */
     .bg-gradient {
         background: linear-gradient(135deg, var(--color-gold), var(--color-brown));
     }
@@ -62,7 +37,7 @@
         background: linear-gradient(to right, var(--color-gold), var(--color-brown));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 2px rgba(255, 233, 152, 0.4);
+        text-shadow: 0 0 2px rgba(212, 255, 79, 0.4);
     }
     .btn-primary {
   background: linear-gradient(
@@ -70,13 +45,13 @@
     rgba(255, 255, 255, 0.08),
     rgba(0, 0, 0, 0.9)
   );
-  
+
   color: white;
 
   /* glow effect */
   box-shadow:
     inset 0 1px 2px rgba(255, 255, 255, 0.15),
-    0 0 15px rgba(255, 233, 152, 0.15); /* your gold */
+    0 0 15px rgba(212, 255, 79, 0.15); /* lime */
 }
 .btn-secondary {
   background: linear-gradient(
@@ -95,7 +70,6 @@
 .timeline-glow{
     box-shadow:
     inset 0 1px 2px rgba(255, 255, 255, 0.15),
-    0 0 15px rgba(255, 233, 152, 0.15);
-    ;
+    0 0 15px rgba(212, 255, 79, 0.15);
 }
 }

@@ -30,13 +30,7 @@ const highlights = [
   },
 ];
 
-// stable particle positions
-const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
-  left: `${(i * 6.8 + 4) % 100}%`,
-  top: `${(i * 13.2 + 7) % 100}%`,
-  delay: i * 0.3,
-  duration: 3.5 + (i % 5),
-}));
+// (Ambient particle field removed from render — see About() below)
 
 // ─── Animation Variants ───────────────────────────────────────────────────────
 const fadeUp = {
@@ -68,20 +62,20 @@ function HighlightCard({ item, idx }) {
       whileInView="visible"
       viewport={{ once: true, margin: "-5%" }}
       whileHover={{ y: -6, transition: { type: "spring", stiffness: 300, damping: 18 } }}
-      className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-transparent via-[#ffe998]/25 to-transparent hover:via-[#ffe998]/55 transition-all duration-500"
+      className="group relative p-[1px] rounded-2xl bg-gradient-to-br from-transparent via-[#d4ff4f]/25 to-transparent hover:via-[#d4ff4f]/55 transition-all duration-500"
     >
       {/* Card body */}
       <div className="h-full bg-black/40 backdrop-blur-sm rounded-2xl p-6 flex flex-col gap-4 shadow-md group-hover:shadow-[0_14px_40px_rgba(255,233,152,0.12)] transition-shadow duration-500">
         {/* Icon */}
         <motion.div
           whileHover={{ rotate: [0, -8, 8, 0], transition: { duration: 0.5 } }}
-          className="w-fit p-3 rounded-xl bg-gradient-to-br from-[#ffe998]/20 to-[#57370d]/30"
+          className="w-fit p-3 rounded-xl bg-gradient-to-br from-[#d4ff4f]/20 to-[#1a1f0d]/30"
         >
-          <item.icon size={22} className="text-[#ffe998]" />
+          <item.icon size={22} className="text-[#d4ff4f]" />
         </motion.div>
 
         <div>
-          <h3 className="text-base font-semibold group-hover:text-[#ffe998] transition-colors duration-300">
+          <h3 className="text-base font-semibold group-hover:text-[#d4ff4f] transition-colors duration-300">
             {item.title}
           </h3>
           <p className="text-gray-400 text-sm mt-2 leading-relaxed">{item.description}</p>
@@ -89,7 +83,7 @@ function HighlightCard({ item, idx }) {
       </div>
 
       {/* Glow behind card */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl bg-gradient-to-br from-[#ffe998]/15 to-[#57370d]/15 -z-10 transition-opacity duration-500" />
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl bg-gradient-to-br from-[#d4ff4f]/15 to-[#1a1f0d]/15 -z-10 transition-opacity duration-500" />
     </motion.div>
   );
 }
@@ -104,13 +98,13 @@ function ProfileImage() {
   return (
     <motion.div ref={ref} style={{ y: springY }} className="relative flex justify-center">
       {/* Ambient glow */}
-      <div className="absolute inset-0 blur-3xl bg-gradient-to-br from-[#ffe998]/25 to-[#57370d]/25 opacity-70 rounded-full scale-75" />
+      <div className="absolute inset-0 blur-3xl bg-gradient-to-br from-[#d4ff4f]/25 to-[#1a1f0d]/25 opacity-70 rounded-full scale-75" />
 
       {/* Decorative ring */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-[-12px] rounded-2xl border border-dashed border-[#ffe998]/15"
+        className="absolute inset-[-12px] rounded-2xl border border-dashed border-[#d4ff4f]/15"
       />
 
       <motion.div
@@ -123,7 +117,7 @@ function ProfileImage() {
         <img
           src={Profile}
           alt="Samuel Ntekim"
-          className="w-[220px] sm:w-[260px] md:w-[300px] aspect-[4/5] object-cover rounded-2xl border border-[#ffe998]/25 shadow-2xl"
+          className="w-[220px] sm:w-[260px] md:w-[300px] aspect-[4/5] object-cover rounded-2xl border border-[#d4ff4f]/25 shadow-2xl"
         />
 
         {/* Shimmer overlay */}
@@ -143,7 +137,7 @@ function ProfileImage() {
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute -bottom-4 -right-4 flex gap-2 items-center bg-gradient-to-br from-[#ffe998]/20 to-[#57370d]/30 border border-[#ffe998]/25 backdrop-blur-md px-3 py-2 rounded-xl text-xs shadow-lg"
+          className="absolute -bottom-4 -right-4 flex gap-2 items-center bg-gradient-to-br from-[#d4ff4f]/20 to-[#1a1f0d]/30 border border-[#d4ff4f]/25 backdrop-blur-md px-3 py-2 rounded-xl text-xs shadow-lg"
         >
           <motion.div
             animate={{ scale: [1, 1.5, 1], opacity: [0.7, 1, 0.7] }}
@@ -159,9 +153,9 @@ function ProfileImage() {
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.65, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute -top-4 -left-4 px-3 py-2 rounded-xl bg-gradient-to-br from-[#ffe998] to-[#57370d] text-black text-center shadow-lg shadow-[#ffe998]/20"
+          className="absolute -top-4 -left-4 px-3 py-2 rounded-xl bg-gradient-to-br from-[#d4ff4f] to-[#1a1f0d] text-black text-center shadow-lg shadow-[#d4ff4f]/20"
         >
-          <div className="text-xl font-black leading-none">4+</div>
+          <div className="text-xl font-bold leading-none">4+</div>
           <div className="text-[9px] font-semibold tracking-wider uppercase mt-0.5">Years Exp.</div>
         </motion.div>
       </motion.div>
@@ -191,21 +185,13 @@ function About() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70" />
       </motion.div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 rounded-full"
-            style={{ left: p.left, top: p.top, backgroundColor: "#ffe998" }}
-            animate={{ y: [0, -16, 0], opacity: [0.25, 0.65, 0.25] }}
-            transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
-          />
-        ))}
-      </div>
+      {/* Ambient particle field removed here — the section already has a
+          parallax background image, header fade-ups, and hover effects;
+          the particles were a purely decorative extra animation loop with
+          no unique visual role, cut per the "reduce animation" direction. */}
 
       {/* Top ambient glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#ffe998]/6 blur-[90px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#d4ff4f]/6 blur-[90px] rounded-full pointer-events-none" />
 
       {/* ── Header ── */}
       <motion.div
@@ -213,19 +199,22 @@ function About() {
         animate={headerInView ? "visible" : "hidden"}
         className="relative z-10 text-center max-w-2xl mx-auto mb-16"
       >
-        <motion.div custom={0} variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#ffe998]/30 bg-white/5 backdrop-blur-md mb-5">
-          <IoSparkles size={13} className="text-[#ffe998]" />
+        <motion.div custom={0} variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#d4ff4f]/30 bg-white/5 backdrop-blur-md mb-5">
+          <IoSparkles size={13} className="text-[#d4ff4f]" />
           <span className="text-[11px] tracking-widest uppercase text-gray-300">About Me</span>
         </motion.div>
 
         <motion.h2
           custom={1}
           variants={fadeUp}
-          className="text-3xl md:text-5xl font-black leading-tight tracking-tight text-white mb-4"
-          style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          className="text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white mb-4"
+          style={{ fontFamily: "var(--font-sans)" }}
         >
           Passionate{" "}
-          <span className="italic font-normal" style={{ color: "#ffe998" }}>
+          <span
+            className="italic font-normal"
+            style={{ color: "#d4ff4f", fontFamily: "var(--font-serif)" }}
+          >
             About Building the Web
           </span>
         </motion.h2>
@@ -269,11 +258,11 @@ function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex gap-8 mt-3 pt-5 border-t border-[#ffe998]/10"
+            className="flex gap-8 mt-3 pt-5 border-t border-[#d4ff4f]/10"
           >
             {[["4+", "Years"], ["20+", "Projects"], ["100%", "Dedication"]].map(([num, label]) => (
               <div key={label}>
-                <div className="text-2xl font-black" style={{ color: "#ffe998" }}>{num}</div>
+                <div className="text-2xl font-bold" style={{ color: "#d4ff4f" }}>{num}</div>
                 <div className="text-xs text-gray-500 tracking-wider uppercase mt-0.5">{label}</div>
               </div>
             ))}
