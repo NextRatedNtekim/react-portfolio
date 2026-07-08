@@ -25,7 +25,7 @@ const FAQS = [
     a: "Yes. I handle end-to-end builds UI/UX direction, branding, and full front-to-back implementation — so you don't need to coordinate between separate designers and developers.",
   },
   {
-    q: "How much does it start a project?",
+    q: "How much does it cost start a project?",
     a: "The cost depends on the project's scope, features and timeline.",
   },
   {
