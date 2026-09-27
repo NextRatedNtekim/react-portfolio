@@ -40,9 +40,7 @@ function ProjectsPage() {
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[220px] bg-[#d4ff4f]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      {/* Particle field removed here too — this page carries the same
-          parallax bg + fade-up header pattern as the home Projects
-          section, this was the heaviest particle count (30) in the app. */}
+      
 
       <div className="relative z-10 max-w-6xl mx-auto">
         
@@ -83,23 +81,9 @@ function ProjectsPage() {
           </motion.p>
         </motion.div>
 
-        {/* Live Projects */}
-        {/* {liveProjects.length > 0 && ( */}
+       
           <div className="mb-16">
-            {/* <motion.div
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <h2 className="text-lg font-semibold text-white tracking-wide uppercase text-sm">
-                Live
-              </h2>
-              <div className="flex-1 h-px bg-white/10" />
-              <span className="text-gray-500 text-xs">{liveProjects.length} projects</span>
-            </motion.div> */}
+           
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveProjects.map((project, idx) => (
@@ -107,26 +91,12 @@ function ProjectsPage() {
               ))}
             </div>
           </div>
-        {/* )} */}
+        
 
         {/* In Progress Projects */}
         {/* {inProgressProjects.length > 0 && ( */}
           <div>
-            {/* <motion.div
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 mb-8"
-            >
-              <div className="w-2 h-2 rounded-full bg-[#d4ff4f]/70" />
-              <h2 className="text-lg font-semibold text-white tracking-wide uppercase text-sm">
-                In Progress
-              </h2>
-              <div className="flex-1 h-px bg-white/10" />
-              <span className="text-gray-500 text-xs">{inProgressProjects.length} projects</span>
-            </motion.div> */}
-
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {inProgressProjects.map((project, idx) => (
                 <ProjectCard key={idx} project={project} idx={idx + liveProjects.length} />
