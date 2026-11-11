@@ -5,15 +5,15 @@ import { FaGithub, FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { IoSparkles } from "react-icons/io5";
 import Background from "../assets/bg-1.jpg";
 import Barber from "../assets/Barber.jpg";
-import Clothing from "../assets/clothing.jpg";
+import Clothing from "../assets/shop.png";
 import Consulting from "../assets/Consulting.jpg";
 import Furniture from "../assets/Furniture.jpg";
-import RealEstate from "../assets/RealEstate.jpg";
-import commerce from "../assets/Market.png";
-import Taskr from "../assets/taskr-og.jpeg";
+import RealEstate from "../assets/estate.png";
+import commerce from "../assets/theorem.png";
+import Taskr from "../assets/taskr.png";
 import hotel from "../assets/Hotel-Booking-App.png";
-import food from "../assets/Food-Delivery-App.png";
-import wedding from "../assets/wedding.jpg";
+import food from "../assets/Kitchen.png";
+import wedding from "../assets/mag.png";
 
 // Data
 export const projects = [
@@ -60,11 +60,11 @@ export const projects = [
     title: "Theorem app",
     description: "Landing page for theorem app",
     image: commerce,
-    tags: ["React", "Tailwind", "Node.js", "Next.js", "Supabase"],
+    tags: ["React", "Tailwind", "Node.js", "Next.js", "Supabase", "Typescript"],
     links: "https://theorm-landing-page.vercel.app/",
     github: "https://github.com/NextRatedNtekim/THEORM-landing-page",
     accent: "#98e0ff",
-    status: { text: "Developing", isLive: false },
+    status: { text: "Live", isLive: true },
   },
   {
     title: "Wedding and Events Booking",
